@@ -1,0 +1,144 @@
+/* Common styles for consistent UI and kid-friendly design for 5-year-olds */
+
+/* Kid-friendly fonts and colors */
+:root {
+  --primary-color: #FF7EB9;
+  --secondary-color: #FFB86E;
+  --accent-color: #7CFFCB;
+  --background-color: #FFFBE7;
+  --card-color: #FFF;
+  --text-color: #333;
+  --shadow-color: rgba(110,193,228,0.14);
+  --font-size-large: 1.5rem;
+  --font-size-medium: 1.2rem;
+  --font-size-small: 1rem;
+  --border-radius: 24px;
+}
+
+/* Make text more readable for young children */
+body {
+  font-family: 'Comic Sans MS', 'Chalkboard SE', sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+}
+
+/* Make main pageTitle more fun and kid-friendly */
+.pageTitle {
+  font-size: 2.2rem !important;
+  color: var(--primary-color) !important;
+  text-align: center !important;
+  margin-bottom: 1.5rem !important;
+  font-weight: bold !important;
+  position: relative;
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Add a fun underline to titles */
+.pageTitle:after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  background: var(--secondary-color);
+  border-radius: 3px;
+}
+
+/* Base container styles to ensure consistent layout */
+.baseContainer {
+  width: 98vw;
+  max-width: 1200px;
+  margin: 2.5rem auto 0 auto;
+  background: #fffbe7;
+  border-radius: 38px;
+  box-shadow: 0 4px 32px rgba(110,193,228,0.14);
+  padding: 2.5rem 3.5rem;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+/* Style overrides for mobile */
+@media (max-width: 700px) {
+  .baseContainer {
+    width: 100vw;
+    max-width: 100%;
+    margin: 0.8rem auto 5rem auto; /* Added bottom margin to ensure space for bottom nav */
+    border-radius: 24px;
+    padding: 1.2rem 2vw;
+    min-height: 70vh;
+  }
+}
+
+/* Kid-friendly elements */
+.kid-title {
+  font-size: 2.2rem;
+  color: #FF7EB9;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-weight: bold;
+  text-shadow: 2px 2px 0px rgba(255, 184, 110, 0.3);
+}
+
+.kid-button {
+  background: linear-gradient(135deg, #7CFFCB 0%, #6EC1E4 100%);
+  border: none;
+  border-radius: 16px;
+  padding: 0.8rem 1.6rem;
+  color: white;
+  font-weight: bold;
+  font-size: 1.1rem;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.kid-button:hover, .kid-button:focus {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.kid-button.primary {
+  background: linear-gradient(135deg, #FF7EB9 0%, #FF99AC 100%);
+}
+
+.kid-button.secondary {
+  background: linear-gradient(135deg, #FFB86E 0%, #FFE066 100%);
+}
+
+/* Fun animations for kids */
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(5deg); }
+  75% { transform: rotate(-5deg); }
+}
+
+.bounce {
+  animation: bounce 1s ease infinite;
+}
+
+.wiggle {
+  animation: wiggle 1s ease infinite;
+}
+
+/* Accessibility improvements for all ages */
+.large-text {
+  font-size: 120%;
+}
+
+.high-contrast {
+  color: #000;
+  background: #fff;
+  border: 3px solid #000;
+}
