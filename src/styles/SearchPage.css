@@ -1,0 +1,43 @@
+/* Styles for SearchPage */
+.searchContainer {
+  width: 100%;
+  max-width: 1100px;
+  margin: 2rem auto 0 auto;
+  background: #fffbe7;
+  border-radius: 24px;
+  box-shadow: 0 2px 12px rgba(110,193,228,0.10);
+  padding: 2rem 2.5rem;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.searchResults {
+  margin-top: 1rem;
+}
+
+.resultsTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+.tableHeader {
+  background: #FFB86E;
+  color: #fff;
+  font-size: 1.2rem;
+  padding: 0.7rem 1.2rem;
+}
+.tableRow:nth-child(even) {
+  background: #fffbe7;
+}
+.tableCell {
+  padding: 0.7rem 1.2rem;
+  font-size: 1.1rem;
+  border-bottom: 1px solid #eee;
+}
+.noResults {
+  color: #FF7EB9;
+  font-weight: bold;
+  margin-top: 2rem;
+  font-size: 1.2rem;
+}

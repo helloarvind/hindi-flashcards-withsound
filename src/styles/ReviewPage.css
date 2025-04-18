@@ -1,0 +1,36 @@
+/* Extract relevant styles for ReviewPage here from App.css */
+
+.reviewContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.flashcard {
+  background: #fff;
+  border-radius: 32px;
+  box-shadow: 0 8px 32px rgba(255,126,185,0.12), 0 1.5px 8px rgba(110,193,228,0.10);
+  width: 420px;
+  height: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  color: #6EC1E4;
+  transition: box-shadow 0.2s, background 0.2s;
+  cursor: pointer;
+  border: 4px solid #FFE066;
+}
+.flashcard:hover {
+  background: #FFB86E;
+  color: #fff;
+  box-shadow: 0 8px 32px rgba(255,184,110,0.18), 0 2px 8px rgba(110,193,228,0.14);
+}
+
+/* Add other ReviewPage-specific styles here */
