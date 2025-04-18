@@ -180,6 +180,7 @@ const ReviewPage = ({ flashcards, saveFlashcards, updateStats, stats, setStats, 
 
         </div>
       )}
+      <div className="bottom-nav-spacer"></div>
     </div>
   );
 };

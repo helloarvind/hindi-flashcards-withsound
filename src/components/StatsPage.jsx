@@ -89,6 +89,7 @@ const StatsPage = ({ stats, reviewHistory, setReviewHistory }) => {
           <button onClick={()=>setPage(p=>Math.min(totalPages,p+1))} disabled={page===totalPages||totalPages===0} style={{padding:'0.5rem 1.1rem', borderRadius:'8px', border:'none', background:'#FFB86E', color:'#fff', fontWeight:'bold', cursor:page===totalPages||totalPages===0?'not-allowed':'pointer'}}>Next</button>
         </div>
       </div>
+      <div className="bottom-nav-spacer"></div>
     </div>
   );
 };

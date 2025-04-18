@@ -66,6 +66,7 @@ const CreatePage = ({ addFlashcard }) => {
           <div className={message ? (message.includes('successfully') ? 'message-success' : 'message-error') : ''}>{message}</div>
         )}
       </form>
+      <div className="bottom-nav-spacer"></div>
     </div>
   );
 };

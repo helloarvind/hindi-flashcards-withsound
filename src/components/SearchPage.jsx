@@ -62,6 +62,7 @@ const SearchPage = ({ flashcards }) => {
           )
         )}
       </div>
+      <div className="bottom-nav-spacer"></div>
     </div>
   );
 };
