@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import '../styles/ReviewPage.css';
+import '../styles/reviewpage.css';
 
 const ReviewPage = ({ flashcards, saveFlashcards, updateStats, stats, setStats, soundEnabled, reviewHistory, setReviewHistory }) => {
   const [currentIndex, setCurrentIndex] = useState(0);

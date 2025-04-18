@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import '../styles/SearchPage.css';
+import '../styles/searchpage.css';
 
 const SearchPage = ({ flashcards }) => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -18,14 +18,26 @@ const SearchPage = ({ flashcards }) => {
   return (
     <div className="searchContainer">
       <h1 className="pageTitle">Search Flashcards</h1>
-      <input
-        type="text"
-        value={searchQuery}
-        onChange={e => setSearchQuery(e.target.value)}
-        className="formInput"
-        placeholder="🔍 Type Hindi or English..."
-        style={{ marginBottom: 24 }}
-      />
+      <div style={{position:'relative', width:'100%', marginBottom: 24}}>
+        <input
+          type="text"
+          value={searchQuery}
+          onChange={e => setSearchQuery(e.target.value)}
+          className="formInput searchInputWithClear"
+          placeholder="🔍 Type Hindi or English..."
+          style={{paddingRight: 38}}
+        />
+        {searchQuery && (
+          <button
+            aria-label="Clear search"
+            onClick={() => setSearchQuery('')}
+            className="searchClearButton"
+            tabIndex={0}
+          >
+            ×
+          </button>
+        )}
+      </div>
       <div className="searchResults">
         {searchResults.length > 0 ? (
           <table className="resultsTable">

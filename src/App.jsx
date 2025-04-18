@@ -50,7 +50,7 @@ const App = () => {
   const [flashcards, setFlashcards] = useState([]);
   const [stats, setStats] = useState({});
   const [activePage, setActivePage] = useState('review');
-  const [menuOpen, setMenuOpen] = useState(false); // For mobile/child-friendly menu
+  
   const [soundEnabled, setSoundEnabled] = useState(() => {
     const stored = localStorage.getItem('soundEnabled');
     return stored === null ? true : stored === 'true';
@@ -86,74 +86,10 @@ const App = () => {
 
   const handleMenuNav = (page) => {
     setActivePage(page);
-    if (isMobile) setMenuOpen(false);
+
   };
 
   const handleToggleSound = () => setSoundEnabled((prev) => !prev);
-
-  return (
-    <div className={isMobile ? 'app-container' : 'app-container'}>
-      {/* Hamburger menu overlay backdrop for mobile */}
-      {isMobile && menuOpen && (
-        <div
-          className="sidebar-backdrop"
-          style={{
-            position: 'fixed',
-            top: 0,
-            left: 0,
-            width: '100vw',
-            height: '100vh',
-            background: 'rgba(0,0,0,0.18)',
-            zIndex: 99
-          }}
-          onClick={() => setMenuOpen(false)}
-        />
-      )}
-      {/* Sidebar always visible on desktop, togglable on mobile */}
-      {(!isMobile || (isMobile && menuOpen)) && (
-        <Sidebar
-          activePage={activePage}
-          setActivePage={handleMenuNav}
-          setMenuOpen={setMenuOpen}
-          menuOpen={menuOpen}
-          soundEnabled={soundEnabled}
-          onToggleSound={handleToggleSound}
-          sidebarClassName={isMobile && menuOpen ? 'sidebar sidebar--open' : 'sidebar'}
-        />
-      )}
-      {/* Hamburger menu button always visible on mobile */}
-      {isMobile && !menuOpen && (
-        <div style={{ position: 'fixed', top: 12, left: 12, zIndex: 15 }}>
-          <button
-            className="menu-fab"
-            onClick={() => setMenuOpen(true)}
-            aria-label="Open Menu"
-            style={{ margin: 0 }}
-          >
-            ☰
-          </button>
-        </div>
-      )}
-      <div className={activePage === 'review' ? 'review-content' : 'main-content'}>
-        {activePage === 'review' && (
-          <ReviewPage flashcards={flashcards} saveFlashcards={saveFlashcards} updateStats={updateStats} stats={stats} setStats={setStats} soundEnabled={soundEnabled} reviewHistory={reviewHistory} setReviewHistory={setReviewHistory} />
-        )}
-        {activePage === 'search' && (
-          <SearchPage flashcards={flashcards} />
-        )}
-        {activePage === 'stats' && (
-          <StatsPage stats={stats} reviewHistory={reviewHistory} setReviewHistory={setReviewHistory} />
-        )}
-        {activePage === 'create' && (
-          <CreatePage addFlashcard={addFlashcard} />
-        )}
-      </div>
-    </div>
-  );
-};
-
-
-// (Removed duplicate App component definition that started here)
 
   const updateStats = (isCorrect, stats, setStats) => {
     const today = new Date().toISOString().split('T')[0];
@@ -175,28 +111,48 @@ const App = () => {
     setStats(newStats);
   };
 
-  const addFlashcard = (newCard) => {
+  const addFlashcard = (newCard, onSuccess) => {
     const newId = flashcards.length > 0 ? Math.max(...flashcards.map(card => card.id)) + 1 : 1;
     const card = {
       id: newId,
       front: newCard.front,
       back: newCard.back,
-};
-
-const addFlashcard = (newCard) => {
-  const newId = flashcards.length > 0 ? Math.max(...flashcards.map(card => card.id)) + 1 : 1;
-  const card = {
-    id: newId,
-    front: newCard.front,
-    back: newCard.back,
-    lastReviewed: null,
-    correct: 0,
-    incorrect: 0
+      lastReviewed: null,
+      correct: 0,
+      incorrect: 0
+    };
+    const updated = [...flashcards, card];
+    setFlashcards(updated);
+    localStorage.setItem('flashcards', JSON.stringify(updated));
+    if (typeof onSuccess === 'function') onSuccess();
   };
-  const updatedCards = [...flashcards, card];
-  saveFlashcards(updatedCards);
-};
 
-}
+  return (
+    <div className={isMobile ? 'app-container' : 'app-container'}>
+
+      {/* Sidebar always visible on desktop, BottomNav always on mobile */}
+      <Sidebar
+        activePage={activePage}
+        setActivePage={handleMenuNav}
+        sidebarClassName={'sidebar'}
+      />
+      <div className={activePage === 'review' ? 'review-content' : 'main-content'}>
+        {activePage === 'review' && (
+          <ReviewPage flashcards={flashcards} saveFlashcards={saveFlashcards} updateStats={updateStats} stats={stats} setStats={setStats} soundEnabled={soundEnabled} reviewHistory={reviewHistory} setReviewHistory={setReviewHistory} />
+        )}
+        {activePage === 'search' && (
+          <SearchPage flashcards={flashcards} />
+        )}
+        {activePage === 'stats' && (
+          <StatsPage stats={stats} reviewHistory={reviewHistory} setReviewHistory={setReviewHistory} />
+        )}
+        {activePage === 'create' && (
+          <CreatePage addFlashcard={addFlashcard} />
+        )}
+      </div>
+
+    </div>
+  );
+};
 
 export default App;
