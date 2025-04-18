@@ -49,20 +49,59 @@
     left: 0;
     right: 0;
     bottom: 0;
-    width: 100vw;
-    height: 64px;
-    background: #FF7EB9 !important; /* DEBUG: bright background */
-    border: 2px solid #222 !important; /* DEBUG: visible border */
-    z-index: 9999 !important; /* DEBUG: very high z-index */
+    width: 100%;
+    height: 70px;
+    background: #FF7EB9;
+    z-index: 9999;
     justify-content: space-around;
     align-items: center;
-    box-shadow: 0 -2px 12px rgba(110,193,228,0.13);
-    border-radius: 0 !important;
-    padding: 0 2vw;
-  }
-  /* DEBUG: end bottom-nav changes */
-  
+    box-shadow: 0 -4px 20px rgba(0,0,0,0.15);
+    border-radius: 0;
+    padding: 8px 2vw calc(env(safe-area-inset-bottom) + 8px) 2vw;
+    box-sizing: border-box;
+    transform: translateY(0);
+    border-top: 2px solid rgba(255,255,255,0.3);
 }
+
+  .bottom-nav-btn {
+    font-size: 1.8rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: transparent;
+    border: none;
+    color: rgba(255,255,255,0.8);
+    font-weight: bold;
+    padding: 6px 12px;
+    border-radius: 12px;
+    transition: all 0.2s;
+  }
+  
+  .bottom-nav-btn div {
+    font-size: 0.9rem;
+    margin-top: 3px;
+    font-weight: 600;
+  }
+  
+  .bottom-nav-btn.active {
+    color: white;
+    background: rgba(255,255,255,0.2);
+    transform: scale(1.05);
+  }
+
+/* Utility class for main content to avoid overlap */
+.bottom-nav-spacer {
+    height: 80px; /* Increased to match nav + extra padding */
+    padding-bottom: calc(env(safe-area-inset-bottom) + 10px);
+    width: 100%;
+    background: transparent;
+    border: none;
+    display: block;
+    margin-top: 20px;
+}
+
+}
+  
 
 html, body, #root, .app-container {
   height: 100%;

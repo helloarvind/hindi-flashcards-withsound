@@ -1,12 +1,11 @@
 /* Extract relevant styles for ReviewPage here from App.css */
+/* Import common styles */
+@import './common.css';
 
 .reviewContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100vw;
-  max-width: 100vw;
+  /* Use baseContainer properties directly */
+  width: 98vw;
+  max-width: 1200px;
   margin: 2.5rem auto 0 auto;
   background: #fffbe7;
   border-radius: 38px;
@@ -15,6 +14,8 @@
   min-height: 80vh;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   overflow: hidden;
   box-sizing: border-box;
   overflow-x: hidden;

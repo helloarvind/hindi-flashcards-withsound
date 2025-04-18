@@ -1,5 +1,9 @@
 /* Styles for SearchPage */
+/* Import common styles */
+@import './common.css';
+
 .searchContainer {
+  /* Use baseContainer properties directly */
   width: 98vw;
   max-width: 1200px;
   margin: 2.5rem auto 0 auto;

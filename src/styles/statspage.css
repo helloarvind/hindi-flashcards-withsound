@@ -1,7 +1,11 @@
 /* Styles for StatsPage */
+/* Import common styles */
+@import './common.css';
+
 .statsContainer {
-  width: 100vw;
-  max-width: 100vw;
+  /* Use baseContainer properties directly */
+  width: 98vw;
+  max-width: 1200px;
   margin: 2.5rem auto 0 auto;
   background: #fffbe7;
   border-radius: 38px;
