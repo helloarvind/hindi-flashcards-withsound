@@ -98,6 +98,26 @@ const preloadedFlashcards = [
   { id: 96, front: 'बेचना', back: 'To sell',  },
   { id: 97, front: 'मिलना', back: 'To meet',  },
   { id: 98, front: 'याद रखना', back: 'To remember',  },
+  { id: 99, front: 'सड़क', back: 'Road' },
+  { id: 100, front: 'चूहा', back: 'Mouse' },
+  { id: 101, front: 'खरगोश', back: 'Rabbit' },
+  { id: 102, front: 'ताला', back: 'Lock' },
+  { id: 103, front: 'बादल', back: 'Cloud' },
+  { id: 104, front: 'पार्क', back: 'Park' },
+  { id: 105, front: 'पतंग', back: 'Kite' },
+  { id: 106, front: 'कमीज', back: 'Shirt' },
+  { id: 107, front: 'दरवाज़ा', back: 'Door' },
+  { id: 108, front: 'खोलना', back: 'Open' },
+  { id: 109, front: 'झूला', back: 'Swing' },
+  { id: 110, front: 'भूरा', back: 'Brown' },
+  { id: 111, front: 'गुलाबी', back: 'Pink' },
+  { id: 112, front: 'अंगूर', back: 'Grapes' },
+  { id: 113, front: 'भालू', back: 'Bear' },
+  { id: 114, front: 'जंगल', back: 'Forest' },
+  { id: 115, front: 'कुर्सी', back: 'Chair' },
+  { id: 116, front: 'मेज़', back: 'Table' },
+  { id: 117, front: 'तकिया', back: 'Pillow' },
+// Existing words: 'Sky' (आकाश) and 'Moon' (चाँद) already present, not duplicated.
 ];
 
 export default preloadedFlashcards;
